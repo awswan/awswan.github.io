@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Mastodon tips</title>
+  </head>
+  <body>
+    <h1>Mastodon tips</h1>
+    This is a collection of points about posting on Mastodon, that I didn't find obvious and aren't always listed in online guides. Most are from the technical documentation, but there are a few I found through trial and error, and am not 100% certain about. I focus on mathstodon, but most points apply to any server. Similarly, I focus on the web interface because that's what I use.
+    <h2>Posting</h2>
+    <ol>
+      <li>Markdown is not currently supported.</li>
+      <li>URLs are automatically made into links as long as they start http://.</li>
+      <li>On mathstodon use \(...\) to write a formula inline and \[...\] for display math. Formulas are rendered using MathJax, the same system used on mathoverflow and many other sites.</li>
+      <li>You can convert formulas to unicode from the edit box. This only works if there is no text already after the formula. Bear that in mind if you copy and paste the post from somewhere else.</li>
+      <li>The conversion to unicode is not always possible. This seems to include anything with subscripts.</li>
+      <li>Formula rendering is not available on all mastodon clients. Unicode is more widely supported.</li>
+      <li>MathJax is potentially better for screen readers than unicode.</li>
+      <li>The CW button is for content warnings. This splits a post into two parts. The second part is hidden by default and can be displayed by clicking "Show more." Content warnings are used for a range of things from sensitive or potentially offensive content through to spoilers for film endings or maths problems. It's common on mastodon to use content warnings for opinions on any divisive topic such as politics or religion.</li>
+      <li>If you reply to a post with a content warning, the same content warning applies to your reply by default. Disable it by clicking CW if you don't want this.</li>
+      <li>If you attach a picture, you can use the editing function to add alt text describing it. You should do this. It is easy and helps anyone who can't see the image easily (visually impaired users, slow internet connections, etc).
+    </ol>
+    <h2>Character count</h2>
+    <ol>
+      <li>URLs always count as 23 characters. When the post is displayed the URL is shortened to a reasonable length.</li>
+      <li>In mentions only the username counts towards the character count, not the server.</li>
+      <li>In content warnings the character counts of the warning and content are added together - the total must be below the limit of 500 characters.</li>
+      <li>Formulas take up less characters if you convert them to unicode.</li>
+      <li>Paragraph breaks only take up two characters but have a big visual effect (in my opinion) in making the post seem longer. This can help readability, but also takes up more space in timelines.</li>
+    </ol>
+    <h2>Search and indexing</h2>
+    <ol>
+      <li>Hashtags are not case sensitive in search. E.g. searching for #HoTT will also bring up posts containing #hott. Capitalising the start of each word helps users with screen readers and makes the hashtag more readable for everyone, but has no effect on indexing.</li>
+      <li>Full text search is available on mathstodon, but will only return posts you authored, favourited, bookmarked or are mentioned in. This is a deliberate design decision by the mastodon developers.</li>
+    </ol>
+    <h2>Publishing level</h2>
+    <ol>
+      <li>Four publishing levels are available: public, unlisted, followers only, and mentioned only. Level can be selecting from the editing box.</li>
+      <li>On the web interface the publishing level of a post is displayed as an icon in the upper right corner of the post.</li>
+      <li>Unlisted posts are publicly accessible, but do not appear on timelines. It's common to use this for long threads and followup discussion.</li>
+      <li>Mentioned only posts are also called direct messages. They appear both in the home timeline and the direct message timeline. They are not end-to-end encrypted.</li>
+    </ol>
+    <h2>Favourites/bookmarks/boosting</h2>
+    <ol>
+      <li>Favourites are "public bookmarks." They are visible to everyone.</li>
+      <li>When you favourite a post, the author is sent a notification.</li>
+      <li>You can see the full list of people who have favourited a post on the web interface by clicking on the post to select it, and then clicking the faint "star icon" below the text, but above the other star icon in the toolbar.</li>
+      <li>Bookmarks are private but otherwise work the same as favourites.</li>
+      <li>Unlike twitter, favourites are not used in any kind of recommendation algorithm. If you want a post to be more prominent, boost instead.</li>
+      <li>Boosts will relay the post to your followers if they haven't seen it already. If you have followers on another server, or followers that haven't checked the local timeline recently, this might be the only way they hear about the post.</li>
+    </ol>
+    <h2>Threads</h2>
+    <ol>
+      <li>Internally, each post either starts a new thread or has a link to a parent post that it replies to. Hence posts are structured as a forest, with a tree for each thread.</li>
+      <li>The tree structure is not visually indicated in the user interface.</li>
+      <li>On the website, clicking on a post to select it displays the post itself, ancestors and descendants. It does not display "siblings" or "cousins."</li>
+      <li>Because of the above, if you want clicking on a post to show the entire thread you will need to make the tree into a linear order by making each post a reply to the previous one.
+      </li>
+    </ol>
+    <h2>Profile page</h2>
+    <ol>
+      <li>URLs listed in the profile metadata can be displayed in green with a tick to indicate they are verified. To do this, add a link back to your profile page, with the attribute rel="me". Example HTML is provided on the profile settings page.</li>
+      <li>The timeline on your profile page displays posts you have posted public and posts you have boosted. It does not display posts you authored but made unlisted.</li>
+      <li>It is possible to "pin" posts you have authored to the top of your profile page, by seleting "Pin on profile" from the 3 dots menu at the bottom of a post.
+    </ol>
+  </body>
+</html>
