@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Morphema</title>
+    <link rel="stylesheet" type="text/css" href="./morphema.css" />
+    <link rel="icon" type="image/svg" href="favicon.svg">
+    <script type="text/javascript" src="./systemprompt.js"></script>
+    <script type="text/javascript" src="./apikey.js"></script>
+    <script type="text/javascript" src="./morphema.js"></script>
+  </head>
+  <body onload='checkApiKey();' onclick='deactivatePhrase();'>
+    <h1>Morphema</h1>
+    <hr width='100%' />
+    <div id="annotationWindow">
+      <div id="annotationText">Select some text to annotate.
+      </div>
+      <svg id='overlay' xmlns="http://www.w3.org/2000/svg">
+	<path id="connector" fill="none" stroke="black" stroke-width="2" />
+      </svg>
+    </div>
+    <div id="controls">
+      <button onclick='annotateClipboard();'>Clipboard</button>
+      <button onclick='document.getElementById("imageInput").click();'>Camera</button>
+      <button onclick="activateAPIModal();">Change API key</button>
+    </div>
+    <div id="apiModalOverlay" onsubmit="collectApiKey()">
+      <div id="apiModal">
+	  <textarea id="apiKeyEntry" rows="4" cols="50" placeholder="Enter OpenAI API key"></textarea>
+	  <br/>
+	  <button onclick="collectApiKey();">Save</button>
+	</form>
+      </div>      
+    </div>
+    <input id="imageInput" type="file" name="pic" accept="image/*" capture="environment"
+	   onchange="annotateImage(this.files[0]);" style="display:none" />
+    <img id='hiddenImage' style='display:none' />
+    <canvas id='hiddenCanvas' width='512' height='512' style='display:none' />
+  </body>
+</html>
