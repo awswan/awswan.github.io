@@ -80,6 +80,7 @@ button {
 
 .note {
     display: none;
+    touch-action: none;
     position: absolute;
     outline-style: solid;
     border-radius: 5px;
