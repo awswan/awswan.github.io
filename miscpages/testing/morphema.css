@@ -22,7 +22,7 @@ button {
 }
 
 #annotationText {
-    font-size: x-large;
+    font-size: xx-large;
     font-family: monospace;
     max-width: 1000px;
     margin: auto;
@@ -33,7 +33,7 @@ button {
 }
 
 #annotation {
-    font-size: large;
+    font-size: x-large;
     display: flex;
     justify-content: center;
     height: 35%;
