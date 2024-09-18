@@ -36,7 +36,7 @@ function computeTopMidpoint(elt) {
     startMarker.remove();
     endMarker.remove();
 
-    return result;    
+    return result;
 }
 
 function moveConnectorLandscape(idx) {
@@ -82,7 +82,7 @@ function connectPositions(pos1, pos2, colour) {
 	pos1[0] + ' ' + (pos1[1] + (pos2[1] - pos1[1]) / 4) + ' ' +
 	pos2[0] + ' ' + (pos2[1] - (pos2[1] - pos1[1]) / 4) + ' ' +
 	pos2[0] + ' ' + pos2[1];
-    
+
     connector.setAttribute("d", curve);
     connector.setAttribute("stroke", colour);
     connector.setAttribute('display', 'inline');
@@ -92,7 +92,7 @@ function positionNote(note, phrase) {
     const annotationWin = document.getElementById('annotationWindow');
     const annotationText = document.getElementById('annotationText')
     const lineHeight = parseInt(getComputedStyle(annotationText).lineHeight);
-    
+
     if (phrase.offsetTop * 2 < annotationWin.offsetHeight) {
 	// Note goes below phrase
 	phraseBottom = phrase.offsetTop + phrase.offsetHeight;
@@ -100,7 +100,7 @@ function positionNote(note, phrase) {
 	note.style.top = noteTop + 'px';
     } else {
 	// Note goes above phrase
-	const noteTop = phrase.offsetTop - 6 * lineHeight;
+	const noteTop = phrase.offsetTop - 10 * lineHeight;
 
 	note.style.top = noteTop + 'px';
     }
@@ -116,7 +116,7 @@ function connectPhraseNote(idx) {
 	connectPositions(
 	    [phraseMidBottom, phrase.offsetTop + phrase.offsetHeight],
 	    [note.offsetLeft + note.offsetWidth / 2, note.offsetTop],
-	    darkPalette[idx % darkPalette.length]);	
+	    darkPalette[idx % darkPalette.length]);
     } else {
 	phraseMidTop = computeTopMidpoint(phrase);
 	connectPositions(
@@ -219,7 +219,7 @@ function makeDraggable(elt, moveCallback) {
     var startLeft = 0;
 
     elt.onpointerdown = startDrag;
-    
+
     function startDrag(e) {
 	e.preventDefault();
 	startX = e.clientX;
@@ -259,7 +259,7 @@ function createNewNote() {
     })
     document.getElementById('annotationWindow').insertAdjacentElement('beforeend', newNote);
     const phrase = document.getElementsByClassName('phrase')[thisIdx];
-    
+
     phrase.addEventListener('click', (e) => {
 	e.stopPropagation();
 	if (latched && activePhrase === thisIdx) {
@@ -285,7 +285,7 @@ function createNewNote() {
     });
 
     if (! phraseSetByUser) {
-	switchActivePhrase(currentIdx);	
+	switchActivePhrase(currentIdx);
     }
 }
 
@@ -293,7 +293,7 @@ function addInputChunk(chunk) {
     if (chunk === undefined || chunk.length === 0) {
 	return;
     }
-    
+
     if (insidePhrase) {
 	const firstAst = chunk.indexOf('*');
 	if (firstAst === -1) {
@@ -373,7 +373,7 @@ async function* getLines(stream) {
 
 async function* getDeltas(stream) {
     currentEvent = '';
-    
+
     for await (line of getLines(stream)) {
 	if (line === '') {
 	    if (currentEvent === '[DONE]') {
@@ -414,7 +414,7 @@ async function openAITextRequest(text) {
 		"content": text
 	    }],
 	    stream: true
-	})	
+	})
     });
 
     const stream = request.body.pipeThrough(new TextDecoderStream());
