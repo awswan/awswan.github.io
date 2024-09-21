@@ -1,7 +1,7 @@
 {
     "name": "Morphema",
-    "start_url": "https://awswan.github.io/miscpages/testing/index.html",
-    "scope": "https://awswan.github.io/miscpages/testing/",
+    "start_url": "/miscpages/testing/index.html",
+    "scope": "/miscpages/testing/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#317EFB",
