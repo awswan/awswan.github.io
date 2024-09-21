@@ -1,7 +1,7 @@
 {
     "name": "Morphema",
-    "start_url": "/miscpages/testing/index.html",
-    "scope": "/miscpages/testing/",
+    "start_url": "/index.html",
+    "scope": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#317EFB",
