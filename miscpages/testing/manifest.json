@@ -1,6 +1,6 @@
 {
     "name": "Morphema",
-    "start_url": ".",
+    "start_url": "morphema.html",
     "scope": ".",
     "display": "standalone",
     "background_color": "#ffffff",
