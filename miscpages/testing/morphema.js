@@ -469,7 +469,7 @@ async function annotateImage(file) {
 	    "Authorization": "Bearer " + apiKey
 	},
 	body: JSON.stringify({
-	    model: "gpt-4o-mini",
+	    model: model,
 	    messages: [{
 		"role": "system",
 		"content": systemPrompt

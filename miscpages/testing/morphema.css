@@ -53,7 +53,7 @@ button {
     pointer-events: none;
 }
 
-#apiModalOverlay {
+#settingsOverlay {
     display: none;
     position: absolute;
     top: 0px;
@@ -63,7 +63,7 @@ button {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-#apiModal {
+#settingsModal {
     margin: 15% auto;
     text-align:center;
     width: 60%;
