@@ -7,10 +7,10 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="manifest" href="manifest.json" />
     <script type="text/javascript" src="./systemprompt.js"></script>
-    <script type="text/javascript" src="./apikey.js"></script>
+    <script type="text/javascript" src="./getsettings.js"></script>
     <script type="text/javascript" src="./morphema.js"></script>
   </head>
-  <body onload='checkApiKey();' onclick='deactivatePhrase();'>
+  <body onload='loadSettings();' onclick='deactivatePhrase();'>
     <h1>Morphema</h1>
     <hr width='100%' />
     <div id="annotationWindow">
@@ -23,13 +23,14 @@
     <div id="controls">
       <button onclick='annotateClipboard();'>Clipboard</button>
       <button onclick='document.getElementById("imageInput").click();'>Camera</button>
-      <button onclick="activateAPIModal();">Change API key</button>
+      <button onclick="activateSettingsModal();">Settings</button>
     </div>
-    <div id="apiModalOverlay" onsubmit="collectApiKey()">
-      <div id="apiModal">
+    <div id="settingsOverlay" onsubmit="collectSettings()">
+      <div id="settingsModal">
 	  <textarea id="apiKeyEntry" rows="4" cols="50" placeholder="Enter OpenAI API key"></textarea>
 	  <br/>
-	  <button onclick="collectApiKey();">Save</button>
+	  <input type="text" label="Model: " id="modelEntry" />
+	  <button onclick="collectSettings();">Save</button>
 	</form>
       </div>      
     </div>
